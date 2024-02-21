@@ -1,4 +1,5 @@
 import Button from "@/Components/Layout/Button";
+import Image from 'next/image';
 
 import { PlusCircle} from "lucide-react";
 import Basket2 from "../basket/basket2";
@@ -7,7 +8,7 @@ export default function Restaurant (){
     return<>
    <main>
     <div className="flex flex-col border-b-current">
-        <img className="w-2/3 mx-auto mb-5" src="/jons.png"/>
+        <Image width={380} height={380} className="w-2/3 mx-auto mb-5" src="/jons.png"/>
         <div className="flex justify-around">
             <div>
                 <h2  className="text-2xl">Papa John’s Pizza Restaurant</h2>
@@ -33,7 +34,7 @@ export default function Restaurant (){
                     <div className="flex justify-between  mb-5 py-5 gap-10 ">
                         <div className="flex gap-10" >
                             <div >
-                                <img src="/pizza.png" className="w-24 h-24"  alt=""/>
+                                <Image width={380} height={380} src="/pizza.png" className="w-24 h-24"  alt=""/>
 
                             </div>
                             <div className="flex flex-col gap-1">

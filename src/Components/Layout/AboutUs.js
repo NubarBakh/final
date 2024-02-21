@@ -1,3 +1,5 @@
+
+import Image from 'next/image';
 export default function AboutUs (){
     return <>
    <div className="flex justify-between mt-20  mx-10">
@@ -9,11 +11,11 @@ export default function AboutUs (){
         </div>
 
         <div className="relative">
-                <img className="w-96 relative" src={'/rec.png'} alt={'rec'}/>
-                <img className="w-40 absolute top-0 right-10 " src={'/sous.png'} alt={'sous'}/>
-                <img className="w-40 absolute bottom-0 left-3" src={'/papa.png'} alt={'papa'}/>
-                <img className="w-40 absolute bottom-20 right-0" src={'/tomato.png'} alt={'tomato'}/>
-                <img className="w-40 absolute top-20 left-0" src={'/hamburger.png'} alt={'hamburger'}/>
+                <Image width={380} height={380} className="w-96 relative" src={'/rec.png'} alt={'rec'}/>
+                <Image width={160} height={160} className="w-40 absolute top-0 right-10 " src={'/sous.png'} alt={'sous'}/>
+                <Image width={160} height={160} className="w-40 absolute bottom-0 left-3" src={'/papa.png'} alt={'papa'}/>
+                <Image width={160} height={160} className="w-40 absolute bottom-20 right-0" src={'/tomato.png'} alt={'tomato'}/>
+                <Image  width={160} height={160}className="w-40 absolute top-20 left-0" src={'/hamburger.png'} alt={'hamburger'}/>
         </div>
 
    </div>

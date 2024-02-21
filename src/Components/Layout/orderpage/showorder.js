@@ -1,4 +1,5 @@
 import ProfileFristSide from "../profilefirst";
+import Image from 'next/image';
 
 export default function ShowOrder() {
     return (
@@ -17,7 +18,7 @@ export default function ShowOrder() {
           <tbody className="divide-y divide-solid divide-stone-950">
             <tr>
               <td className="ordertable">
-                <img src={'/pizza.png'} className="w-16 h-16" alt="pizza" />
+                <Image width={60} height={600} src={'/pizza.png'} className="w-16 h-16" alt="pizza" />
               </td>
               <td className="ordertable">papa</td>
               <td className="ordertable">20</td>

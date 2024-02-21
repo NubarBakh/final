@@ -1,5 +1,6 @@
 import { CircleUserRound,ShoppingBasket, LogOut ,Trash2} from "lucide-react";
 import Button from "../Button"
+import Image from 'next/image';
 
 export default function Basket2(){
    return<>
@@ -21,7 +22,7 @@ export default function Basket2(){
                 <div className="flex justify-between mb-5 py-5">
                     <div className="flex gap-10" >
                         <div >
-                            <img src="/pizza.png" className="w-24 h-24"  alt=""/>
+                            <Image width={80} height={80} src="/pizza.png" className="w-24 h-24"  alt=""/>
 
                         </div>
                         <div className="flex flex-col">

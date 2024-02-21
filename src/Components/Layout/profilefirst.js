@@ -1,5 +1,7 @@
 import { CircleUserRound,ShoppingBasket, LogOut } from "lucide-react";
 
+
+
 export default function ProfileFristSide (){
 
     return<>

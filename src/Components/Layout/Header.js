@@ -2,10 +2,11 @@
 import Link from "next/link";
 import Button from "./Button";
 
+
 export default function Header (){
     return <>
     
-    <header className="flex  justify-between pt-5 mt-5  mx-10">
+    <header className="flex  justify-between pt-5 mt-5  mx-10 md:flex">
         <Link className="text-black-300 text-4xl font-bold" href={'/'}>
             <div className="flex">
                 <div>Foody</div>

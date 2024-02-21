@@ -1,6 +1,8 @@
 import Button from "./Button";
 import { CircleUserRound,ShoppingBasket, LogOut } from "lucide-react";
 import ProfileFristSide from "./profilefirst";
+import Image from 'next/image';
+
 export default function ProfilePage(){
    return<>
     <div className="justify-around flex ">
@@ -14,8 +16,8 @@ export default function ProfilePage(){
 
             <h2 className="flex ml-10 mt-10 font-semibold text-gray-700 text-3xl">Profile</h2>
 
-            <div className="flex justify-center">
-                <img src={'/upload.png'}/>
+            <div  className="flex justify-center">
+                <Image width={200} height={200} src={'/upload.png'}/>
             </div>
 
             <form className="flex justify-center gap-20 mt-10">

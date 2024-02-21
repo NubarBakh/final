@@ -1,3 +1,5 @@
+
+import Image from 'next/image';
 export default function PopularFood() {
     return <>
 
@@ -7,9 +9,9 @@ export default function PopularFood() {
        
         <div className="flex justify-between mt-10">
            
-            <img className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 w-80 h-80 pt-2"  src={'/twister.png'} alt='twister'/>
-            <img className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 w-80 h-80 pt-2"   src={'/margarita.png'} alt='margarita'/>
-            <img  className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 w-80 h-80 pt-2" src={'/chees.png'} alt='chees'/>
+            <Image width={320} height={320} className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 w-80 h-80 pt-2"  src={'/twister.png'} alt='twister'/>
+            <Image width={320} height={320} className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 w-80 h-80 pt-2"   src={'/margarita.png'} alt='margarita'/>
+            <Image width={320} height={320}  className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 w-80 h-80 pt-2" src={'/chees.png'} alt='chees'/>
           
             
         </div>

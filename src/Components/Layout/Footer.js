@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Footer (){
     return <>
     <footer className="bg-black text-white  flex flex-col mt-20 p-1 pt-20">
@@ -11,13 +13,13 @@ export default function Footer (){
                     </div>
                     <div className="flex mt-5 gap-3">
                        <a className="w-14 h-14 rounded-full border-white-700 border-4 p-1" href="">
-                         <img className="w-12 h-12 rounded-full  " src="./instagram.png" alt="instagram"/>
+                         <Image width={48} height={48} className="w-12 h-12 rounded-full  " src="/instagram.png" alt="instagram"/>
                          </a>
                         <a  className="w-14 h-14 rounded-full border-white-700 border-4 p-1">
-                        <img className="w-12 h-12 rounded-full " src="./fb.png" alt="fb"/>
+                        <Image  width={48} height={48}  className="w-12 h-12 rounded-full " src="/fb.png" alt="fb"/>
                         </a>
                         <a  className="w-14 h-14 rounded-full border-white-700 border-4 p-1">
-                        <img className="w-12 h-12 rounded-full " src="./twitter.png" alt="twitter"/>
+                        <Image width={48} height={48}  className="w-12 h-12 rounded-full " src="/twitter.png" alt="twitter"/>
                         </a>
                     </div>
             </div>

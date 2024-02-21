@@ -1,5 +1,8 @@
 import Image from "next/image"
 import Button from "./Button"
+import { px } from "framer-motion"
+
+
 export default function AboutSite(){
 return <>
 <main className="items-center flex  "> 
@@ -20,10 +23,10 @@ return <>
         </div>
         <div className="relative ">
         
-                <img  className="relative top-0 left-0" src={'/burger.png'} alt={'burger'}/>
-                <img className=" w-36  absolute top-10 right-0  animate-bounce" src={'/G305.png'} alt={'burger'}/>
-                <img className="  w-36  absolute bottom-40 left-0 animate-bounce" src={'/G317.png'} alt={'burger'}/>
-                <img className=" w-36 absolute bottom-20 right-0 animate-bounce" src={'/G318.png'} alt={'burger'}/>
+                <Image width={300}  height={300} className="relative top-0 left-0 " src={'/burger.png'}  alt={'burger'}/>
+                <Image width={144}  height={144} className=" w-36  absolute top-10 right-0  animate-bounce" src={'/G305.png'} alt={'burger'}/>
+                <Image width={144}  height={144} className="  w-36  absolute bottom-40 left-0 animate-bounce" src={'/G317.png'} alt={'burger'}/>
+                <Image  width={144}  height={144} className=" w-36 absolute bottom-20 right-0 animate-bounce" src={'/G318.png'} alt={'burger'}/>
         </div>
         
 

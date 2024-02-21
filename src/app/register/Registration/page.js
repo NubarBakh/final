@@ -32,7 +32,7 @@ function handleFormSubmit(e){
     
     </div>
         <div className="flex mx-auto ">
-            <img className="bg-red-400 mt-5 w-1/3 h-1/3 ml-20" src={'/login.png'}/>
+            <Image className="bg-red-400 mt-5 w-1/3 h-1/3 ml-20" src={'/login.png'}/>
 
                 <div className="flex mt-20 mx-auto  flex-col ">
                                 <div className="mx-auto  flex gap-5 font-semibold text-lg mb-10">  
@@ -73,7 +73,7 @@ function handleFormSubmit(e){
                             <Button  style={{ borderRadius :5, backgroundColor:'rgb(248 113 113)',width: 415, color :'white'}}>Register</Button>
 
                             <Button style={{ borderRadius :5, backgroundColor:'blue',width: 415, color :'white', marginTop:10, display:' flex'}}>
-                                <img width={24} height={24} className="mx-12" src={'/google.png'}/>
+                                <Image width={24} height={24} className="mx-12" src={'/google.png'}/>
                                 Login with Google</Button>
                                                        
                         </form>
