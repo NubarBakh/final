@@ -1,6 +1,6 @@
 import Button from "../Button";
 import { CircleUserRound,ShoppingBasket, LogOut } from "lucide-react";
-import ProfileFristSide from "./profilefirst";
+import ProfileFristSide from "../Profile/profilefirst";
 import Image from 'next/image';
 
 export default function ProfilePage(){

@@ -1,6 +1,6 @@
 
 "use client"
-import ProfileFristSide from "../profilefirst";
+import ProfileFristSide from "../Profile/profilefirst";
 import { GripVertical } from "lucide-react";
 import React from "react";
 import { useState } from "react";

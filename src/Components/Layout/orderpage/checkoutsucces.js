@@ -1,4 +1,4 @@
-import ProfileFristSide from "../profilefirst";
+import ProfileFristSide from "../Profile/profilefirst";
 import Image from 'next/image';
 
 export default function CheckoutSucces (){

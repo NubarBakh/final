@@ -1,5 +1,6 @@
 
-import ProfileFristSide from "../profilefirst"
+import ProfileFristSide from "@/Components/Layout/profilefirst";
+
 
 import Basket2 from "./basket2";
 

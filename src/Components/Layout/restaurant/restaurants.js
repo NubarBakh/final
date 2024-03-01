@@ -3,6 +3,8 @@ import Image from "next/image"
 import {  ListFilter, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+
+
 export default function RestaurantsList (){
 
     const [open,setOpen]=useState(false)

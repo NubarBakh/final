@@ -1,5 +1,5 @@
 import Button from "../Button";
-import ProfileFristSide from "../profilefirst";
+import ProfileFristSide from "../Profile/profilefirst";
 
 export default function CheckoutPage(){
     return<>
