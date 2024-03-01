@@ -1,21 +1,24 @@
 
 import Link from "next/link";
 import Button from "./Button";
-
+import SiteMenu from './siteMenu'
 
 export default function Header (){
     return <>
     
-    <header className="flex  justify-between pt-5 mt-5  mx-10 md:flex">
-        <Link className="text-black-300 text-4xl font-bold" href={'/'}>
-            <div className="flex">
+    <header className="flex   pt-2  mt-5 sm:justify-between md:flex md:justify-between ">
+   <div className=" flex">
+   <SiteMenu/>
+        <Link className="text-black-300 text-3xl font-bold  sm:ml-5 md:flex md:justify-start " href={'/'}>
+            <div className="flex ">
                 <div>Foody</div>
                 <div className="text-red-500">.</div>
             </div>
         </Link>
+   </div>
 
 
-         <nav className="flex items-center gap-10 text-gray-400 ">
+         <nav className=" items-center  text-gray-400   flex sm:hidden  md:flex gap-3 ">
              <Link className="text-red-500" href={'/'}>Home</Link>
              <Link href={'/restaurants'}>Restaurants</Link>
              <Link href={'/about'}>About us</Link>
@@ -23,15 +26,17 @@ export default function Header (){
              <Link href={'/faq'}>FAQs</Link>
          </nav>
 
-         <div className="flex gap-4">
-                <input type="text" placeholder="Search" className="border p-1 rounded-md"/>
-                <div className="rounded-full border bg-green-500 p-1"> Eng</div>
+         <div className="flex gap-3  sm:flex-col sm:col-end-1 md:flex-row md:gap-1  ">
+                <input type="text" placeholder="Search" className="border p-1 rounded-md  sm:hidden md:flex"/>
+                <div className="rounded-full border bg-green-500 p-1 sm:flex  sm:col-end-1 md:flex"> Eng</div>
                 <Link href={'/register'}>
-                <Button style={{backgroundColor :'red', color:'white',borderRadius : 100  }}>Sign up</Button>
-                </Link>
-                
-               
+               <div className="sm:hidden md:flex"> 
+               <Button style={{backgroundColor :'red', color:'white',borderRadius : 100  }}>Sign up</Button>
+               </div>
+                </Link>         
          </div>
+
+         
     </header>
     </>
     

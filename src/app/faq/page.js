@@ -1,8 +1,8 @@
 'use client'
 import Footer from "@/Components/Layout/Footer";
 import Header from "@/Components/Layout/Header";
-import Faqs from "@/Components/Layout/faqs";
-import { useState } from "react";
+import Faqs from "@/Components/Layout/FAQ/faqs";
+
 export default function Faq (){
 
  

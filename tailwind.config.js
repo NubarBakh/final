@@ -7,8 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'sm': '300px',
+        'md': '815px',
+        // => @media (min-width: 992px) { ... }
+      },
       colors: {
-        pirmary: '#f13a01',
+        primary: '#f13a01'
       },
     },
   },

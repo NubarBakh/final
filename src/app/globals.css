@@ -1,38 +1,42 @@
-*{
+/* Resetting Defaults */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-body{
+/* Body Styles */
+body {
   border: 2px solid red;
- 
 }
+
+/* Smooth Scrolling Behavior */
 html,
-body{
+body {
   scroll-behavior: smooth;
 }
 
-
-
-
+/* Utility Classes */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
 
+/* Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.ordertable{
-padding-right: 50px;
-margin-top: 50px;
-padding-top: 30px;
-padding-bottom:10px;}
+/* Custom Class */
+.ordertable {
+  padding-right: 50px;
+  margin-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
 
+/* Keyframes Animation */
 @keyframes bounce {
   0%, 100% {
     transform: translateY(-25%);

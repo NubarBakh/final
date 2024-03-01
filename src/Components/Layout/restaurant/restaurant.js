@@ -1,11 +1,16 @@
+'use client'
 import Button from "@/Components/Layout/Button";
 import Image from 'next/image';
 
 import { PlusCircle} from "lucide-react";
 import Basket2 from "../basket/basket2";
 
-export default function Restaurant (){
+export default function RestaurantName (){
+    function add (){
+
+    }
     return<>
+       
    <main>
     <div className="flex flex-col border-b-current">
         <Image width={380} height={380} className="w-2/3 mx-auto mb-5" src="/jons.png"/>
@@ -49,7 +54,7 @@ export default function Restaurant (){
                                $7.90
                                 
                             </div>
-                            <div>
+                            <div onClick={add}>
                             <PlusCircle />   
                             </div>
 

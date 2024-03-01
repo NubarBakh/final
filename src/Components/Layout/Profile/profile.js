@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "../Button";
 import { CircleUserRound,ShoppingBasket, LogOut } from "lucide-react";
 import ProfileFristSide from "./profilefirst";
 import Image from 'next/image';
