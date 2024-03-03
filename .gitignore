@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+server/configs/foodyapp-51b6e-firebase-adminsdk-1f971-aef5cf5866.json
