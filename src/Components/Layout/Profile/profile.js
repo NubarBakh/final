@@ -1,13 +1,14 @@
 import Button from "../Button";
 import { CircleUserRound,ShoppingBasket, LogOut } from "lucide-react";
-import ProfileFristSide from "../Profile/profilefirst";
+
 import Image from 'next/image';
+import ProfileFirstSide from "../Profile/profilefirst";
 
 export default function ProfilePage(){
    return<>
     <div className="justify-around flex ">
         <div className="bg-gray-200 px-20 mt-10 pt-10  h-96 "> 
-          <ProfileFristSide/>
+          <ProfileFirstSide/>
         </div>
 
        

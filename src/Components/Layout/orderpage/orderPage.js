@@ -1,16 +1,17 @@
 
 "use client"
-import ProfileFristSide from "../Profile/profilefirst";
+
 import { GripVertical } from "lucide-react";
 import React from "react";
 import { useState } from "react";
+import ProfileFirstSide from "../Profile/profilefirst";
 
 export default function OrderPage(){
   const[open,setOpen]=useState(false)
 return<>
 
     <div className="justify-around flex "> 
-        <ProfileFristSide/>
+        <ProfileFirstSide/>
         <div className="flex flex-col my-10 pb-10 px-10 bg-gray-200">
             <h2  className="flex ml-10 mt-10 font-semibold text-gray-700 text-3xl">Your Orders</h2>
             

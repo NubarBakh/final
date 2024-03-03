@@ -78,10 +78,11 @@ function handleFormSubmit(e){
                             <label className="mt-4 md:mt-12 sm:mt-3">
                                 Password
                             </label>
-                            <input className="mt-1 h-10  mb-10 bg-red-100 rounded-md pl-3 sm:w-72 md:w-96" type="password" placeholder="password" value={password}
+                            <input className="mt-1 h-10  mb-10 bg-red-100 rounded-md pl-3 sm:w-72 md:w-96" type="password"
+                             placeholder="password" value={password}
                             onChange={e=>setPassword(e.target.value)}/>
 
-                           <div className='sm:w-72 md:w-96 w-full sm:mb-2'>
+                           <div className='sm:w-72 md:w-96 w-full sm:mb-2' type='submit'>
                            <Button  className='w-full sm:w-72 md:w-96' style={{ borderRadius :5, backgroundColor:'rgb(248 113 113)', color :'white'}}>Register</Button>
 
 

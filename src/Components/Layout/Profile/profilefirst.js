@@ -2,7 +2,7 @@ import { CircleUserRound,ShoppingBasket, LogOut } from "lucide-react";
 
 
 
-export default function ProfileFristSide (){
+export default function ProfileFirstSide (){
 
     return<>
      <div className="bg-gray-200 px-20 mt-10 pt-10   ">

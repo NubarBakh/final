@@ -1,10 +1,11 @@
 import Button from "../Button";
-import ProfileFristSide from "../Profile/profilefirst";
+import ProfileFirstSide from "../Profile/profilefirst";
+
 
 export default function CheckoutPage(){
     return<>
    <div className="flex gap-5 mx-10">
-   <ProfileFristSide />
+   <ProfileFirstSide/>
    <div className="flex flex-col my-10 pb-10 px-10 bg-gray-200  w-1/2">
         <h2  className="flex ml-10 mt-10 font-semibold text-gray-700 text-3xl"> Checkout</h2>
 

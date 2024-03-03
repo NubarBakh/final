@@ -50,7 +50,7 @@ export default function RestaurantsList (){
         <div className=" mx-2 flex gap-5 m-5 flex-wrap sm:flex-wrap sm:justify-center  md:justify-start ">
 
         <Link href="/restaurants/restaurant">
-            <div  className="border-solid border-gray border-2 px-5 box-border pt-5" onClick={goToRestaurant}>
+            <div  className="border-solid border-gray border-2 px-5 box-border pt-5" >
                 <div className="flex justify-center mb-2 ">
                     <Image src={'/pizza.png'} width={100}height={100} alt={'pizza'}></Image>
                 </div>
