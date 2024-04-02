@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Button from "./Button"
-import { px } from "framer-motion"
 import Link from "next/link";
 
 

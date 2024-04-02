@@ -6,14 +6,14 @@ import ProfileFirstSide from "../Profile/profilefirst";
 
 export default function ProfilePage(){
    return<>
-    <div className="justify-around flex ">
-        <div className="bg-gray-200 px-20 mt-10 pt-10  h-96 "> 
+    <div className=" gap-10 flex mx-10 ">
+         
           <ProfileFirstSide/>
-        </div>
+        
 
        
        
-        <div className="flex flex-col my-10 pb-10 px-10 bg-gray-200">
+        <div className="flex flex-col my-10 pb-10 px-10 bg-gray-100">
 
             <h2 className="flex ml-10 mt-10 font-semibold text-gray-700 text-3xl">Profile</h2>
 

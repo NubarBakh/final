@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./", // or specify your base directory path
-    "paths": {
-      "@/*": ["src/*"]}, // Example path mapping for custom aliases
     "lib": [
       "dom",
       "dom.iterable",
@@ -30,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/[locale]/layout.js", "src/app/layout.js", "src/app/page.js"  ],
+, "src/Components/Layout/AuthContext.js"  ],
   "exclude": [
     "node_modules"
   ]
