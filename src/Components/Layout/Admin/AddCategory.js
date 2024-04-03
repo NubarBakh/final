@@ -1,7 +1,9 @@
 import { useState, useCallback, useRef } from "react";
 import Button from "../Button";
 import Image from 'next/image';
-import axios from "axios"; // Correct import for axios
+import axios from "axios"; 
+
+
 
 export default function AddCategory({ value }) {
   const [show, setShow] = useState(true);
@@ -11,7 +13,7 @@ export default function AddCategory({ value }) {
     const category = categoryRef.current.value;
     console.log(category);
 
-    axios.post("http://localhost:3000/api/category", { // Use axios.post for POST requests
+    axios.post("http://localhost:3001/api/category", {
       name: category,
       slug: "string",
     })

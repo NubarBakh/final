@@ -3,14 +3,15 @@ import Image from 'next/image';
 import Button from "../Button";
 import { PlusCircle,X } from "lucide-react";
 import Basket2 from "../basket/basket2";
-import data from "./data";
+
 import dynamic from "next/dynamic";
 import { useCart, CartProvider } from "react-use-cart";
-import { useState } from 'react';
-
+import { useState,useCallback, useEffect } from 'react';
+import axios from 'axios';
 
 
 function RestaurantName() {
+   
    
     return (
         <RestaurantContent />
@@ -18,14 +19,25 @@ function RestaurantName() {
 }
 
 function RestaurantContent() {
+    const [product,setProducts]=useState([])
    
-    const {
-        cartTotal,
-        addItem,
-        
-     } = useCart();
-    
-    const [open,setOpen]=useState(false) 
+    const {cartTotal,addItem,} = useCart();
+    const [open,setOpen]=useState(false)
+    useEffect(()=> {
+       
+        axios.get("http://localhost:3001/api/products")
+        .then((response) => {
+            console.log( response.data.result.data);    
+            setProducts( response.data.result.data);                
+              
+        })
+        .catch(error => {
+            console.log( error.response);
+            
+            
+           
+        });
+    }, [])  
 
 
     return (
@@ -64,15 +76,15 @@ function RestaurantContent() {
                 <div className="flex bg-gray-100  flex-col  mt-10  px-10 mx-5 w-screen divide-y divide-solid divide-slate-400">
                     <h2 className="text-center mb-10 justify-center  mt-4 text-3xl font-bold sm:hidden md:flex">Products</h2>
                     <div className="flex justify-between  mb-5 py-5 gap-10  flex-col divide-y divide-solid divide-slate-400 ">
-                        {data.productData.map((item, index) => (
+                        {product.map((item, index) => (
                             <div key={index} className="flex justify-between px-14 pt-5">
                                 <div className="flex gap-5">
                                     <div>
                                         <Image width={380} height={380} src={item.img} className="w-24 h-24" alt="" />
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-semibold text-xl">{item.title}</div>
-                                        <div className="text-gray-700">{item.desc}</div>
+                                        <div className="font-semibold text-xl">{item.name}</div>
+                                        <div className="text-gray-700">{item.description}</div>
                                     </div>
                                 </div>
                                 <div className="flex gap-10 ">
@@ -99,7 +111,7 @@ function RestaurantContent() {
             <h2 className="text-center mb-10 mt-4 text-xl font-bold">{category}</h2>
             
             <div className="flex flex-col divide-y divide-solid divide-slate-400">
-                {data.productData.map((item, index) => {
+                {product.map((item, index) => {
                     if (category.toLowerCase() === item.desc) {
                         
                         return (

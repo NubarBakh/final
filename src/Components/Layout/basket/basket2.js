@@ -48,8 +48,8 @@ export default function Basket2(){
                     <div className="flex gap-5" >
                     <div>
                       <Image
-                        src={item.img.src}
-                        alt={item.img.alt}
+                        src={''}
+                        alt={''}
                         height={50}
                         width={50}
                       />
