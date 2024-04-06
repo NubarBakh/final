@@ -4,15 +4,51 @@ import AdminHeader from "../../../Components/Layout/Admin/AdminHeader";
 import AdminSideMenu from "../../../Components/Layout/Admin/AdminSideMenu";
 import Button from "../../../Components/Layout/Button";
 import { Pencil, Trash2 } from "lucide-react";
-import { useState ,useCallback} from "react";
+import { useState ,useCallback,useEffect} from "react";
 import AddCategory from '../../../Components/Layout/Admin/AddCategory';
-
+import EditCategory from "../../../Components/Layout/Admin/EditCategory"
+import axios from "axios";
 export default function Category() {
   const [open, setOpen] = useState(false);
+  const[edit,setEdit]=useState(false);
+  const[id,setId]=useState(null);
+  const[list,setList]=useState([])
 
-  const toggleAddCategory = () => {
-    setOpen((prevOpen) => !prevOpen);
+
+  useEffect(() => {
+    axios.get(`http://localhost:3001/api/category`)
+      .then((result) => {
+        console.log(result.data.result.data)
+        setList(result.data.result.data)
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Fetch failed");
+      });
+  }, []);
+
+
+  const onClick = useCallback((id) => {
+    axios.delete(`http://localhost:3001/api/category${id}`)
+    .then((result) => {
+        alert(" delete successfully!");
+        console.log( result.data.result.data[0].id)
+        setId(result.data.result.data[0].id)
+        
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("delete failed");
+    });
+  }, []);
+
+
+  const handleEditClick = (id) => {
+  
+    setEdit(id === edit ? null : id);
   };
+
+  
 
   return (
     <>
@@ -23,7 +59,7 @@ export default function Category() {
           <div className="ml-4">
             <div className="flex items-center justify-between mb-4">
               <h1 className="text-2xl font-bold">Categories</h1>
-              <div onClick={toggleAddCategory}>
+              <div onClick={()=>{setOpen(!open)}}>
                 <Button >+ Add Category</Button>
               </div>
             </div>
@@ -40,46 +76,31 @@ export default function Category() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="py-2 px-4">9177</td>
-                    <td className="py-2 px-4">
-                      <div className="w-10 h-10">
-                        <Image src="/pizza.png" alt="" layout="responsive" width={50} height={50} />
-                      </div>
-                    </td>
-                    <td className="py-2 px-4">Pizza</td>
-                    <td className="py-2 px-4">yummy</td>
-                    <td className="py-2 px-4">
-                      <div className="flex items-center space-x-2">
-                        <button className="text-blue-600 hover:text-blue-800">
-                          <Pencil size={20} />
-                        </button>
-                        <button className="text-red-600 hover:text-red-800">
-                          <Trash2 size={20} />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4">9178</td>
-                    <td className="py-2 px-4">
-                      <div className="w-10 h-10">
-                        <Image src="/pizza.png" alt="" layout="responsive" width={50} height={50} />
-                      </div>
-                    </td>
-                    <td className="py-2 px-4">Pizza</td>
-                    <td className="py-2 px-4">yummy</td>
-                    <td className="py-2 px-4">
-                      <div className="flex items-center space-x-2">
-                        <button className="text-blue-600 hover:text-blue-800">
-                          <Pencil size={20} />
-                        </button>
-                        <button className="text-red-600 hover:text-red-800">
-                          <Trash2 size={20} />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                {list.map((cat) => (
+                    <tr key={cat.id}>
+                      <td className="py-2 px-4">{cat.id}</td>
+                      <td className="py-2 px-4">
+                        <div className="w-10 h-10">
+                          <Image src="/pizza.png" alt="" layout="responsive" width={50} height={50} />
+                        </div>
+                      </td>
+                      <td className="py-2 px-4">{cat.name}</td>
+                      <td className="py-2 px-4">{cat.slug}</td>
+                      <button className="py-2 px-4" onClick={() => handleEditClick(cat.id)}>
+                            <Pencil size={20}  />
+                                        
+                      </button>
+                     
+                      <td>
+                      <button className="text-red-600 hover:text-red-800" onClick={onClick}>
+                            <Trash2 size={20} />
+                          </button>
+                      </td>
+                      {edit === cat.id&& <EditCategory value={'edit category'}/>}
+                    </tr>
+                    
+                  ))}
+                  
                 </tbody>
               </table>
             </div>
