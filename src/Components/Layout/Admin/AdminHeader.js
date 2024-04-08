@@ -32,17 +32,11 @@ export default function AdminHeader ({}){
 
 
 <div className="flex gap-3 sm:flex-col sm:col-end-1 md:flex-row md:gap-1">
-   <div onClick={()=>{setOpen(!open)}}>
-   <Button > +ADD PRODUCT</Button>
-   
-   </div>
+<div onClick={()=>{setOpen(!open)}}>
+                <Button >+ Add Product</Button>
+              </div>
    {open&&( 
-    <div >
-      
-  <AdminAddEdit value={'add Product'}
-  />
-
-    </div>
+   <AdminAddEdit value={'add Product'} />
    )}
 
   <div className="rounded-full border bg-green-500 p-1 sm:flex sm:col-end-1 md:flex">

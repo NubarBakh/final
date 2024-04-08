@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef,useEffect } from "react";
 import Button from "../Button";
 import Image from 'next/image';
 import axios from "axios"; 
@@ -8,6 +8,25 @@ import axios from "axios";
 
 export default function AddRestaurant({ value }) {
   const [show, setShow] = useState(true);
+
+  const[list,setList]=useState([])
+
+
+  useEffect(() => {
+   axios.get(`http://localhost:3001/api/category`)
+     .then((result) => {
+       console.log(result.data.result.data)
+       setList(result.data.result.data)
+       console.log(result.data.result.data)
+     })
+     .catch((error) => {
+       console.error("Error:", error);
+       alert("Fetch failed");
+     });
+ }, []);
+
+
+
 
   const nameRef = useRef(null);
   const cuisineRef = useRef(null);
@@ -55,7 +74,7 @@ export default function AddRestaurant({ value }) {
         alert(" failed");
       });
   }, []);
-
+console.log(list)
     
 
   return (
@@ -86,12 +105,20 @@ export default function AddRestaurant({ value }) {
                 <label>Address</label>
                 <input type="text"  ref={addresRef} />
 
-                <select>
-                  <option value=''>Category </option>
-                  <option value='option1'>Option 1</option>
-                  <option value='option2'>Option 2</option>
-                  <option value='option3'>Option 3</option>
-                </select>
+                <label>Category</label>
+                 
+                   
+                    <select>
+                {list.map((cat, key) => (
+                    <option value={cat.name} key={key}>
+                      {cat.name}
+                    </option>
+                  ))}
+                     </select>
+
+                 
+                 
+               
               </form>
             </div>
             <div className="flex justify-between">

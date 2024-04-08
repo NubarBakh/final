@@ -8,11 +8,13 @@ import { useState ,useCallback,useEffect} from "react";
 import AddCategory from '../../../Components/Layout/Admin/AddCategory';
 import EditCategory from "../../../Components/Layout/Admin/EditCategory"
 import axios from "axios";
+
+
 export default function Category() {
   const [open, setOpen] = useState(false);
-  const[edit,setEdit]=useState(false);
-  const[id,setId]=useState(null);
   const[list,setList]=useState([])
+  
+  const [editId, setEditId] = useState(null);
 
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function Category() {
     .then((result) => {
         alert(" delete successfully!");
         console.log( result.data.result.data[0].id)
-        setId(result.data.result.data[0].id)
+       
         
     })
     .catch((error) => {
@@ -44,10 +46,8 @@ export default function Category() {
 
 
   const handleEditClick = (id) => {
-  
-    setEdit(id === edit ? null : id);
+    setEditId(id === editId ? null : id);
   };
-
   
 
   return (
@@ -96,7 +96,7 @@ export default function Category() {
                             <Trash2 size={20} />
                           </button>
                       </td>
-                      {edit === cat.id&& <EditCategory value={'edit category'}/>}
+                     {editId === cat.id && <EditCategory value={'edit category'} />}
                     </tr>
                     
                   ))}

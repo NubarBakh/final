@@ -1,13 +1,27 @@
 "use client"
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import Image from 'next/image';
 import AdminHeader from '../../../Components/Layout/Admin/AdminHeader';
 import AddRestaurant from '../../../Components/Layout/Admin/AddRestaurant';
 import AdminSideMenu from '../../../Components/Layout/Admin/AdminSideMenu';
 import { Trash2, Pencil } from 'lucide-react';
+import axios from "axios";
+
 
 export default function AdminRestaurants() {
   const [open, setOpen] = useState(false);
+  const[lists,setLists]=useState([])
+
+  useEffect(()=>{axios.get('http://localhost:3001/api/restuarants')
+  .then((result)=>{
+    console.log(result.data.result.data)
+    setLists(result.data.result.data)
+  })
+  .catch((error)=>{
+    console.error("Error:", error);
+    alert("Fetch failed");
+  })
+},[])
 
 
 
@@ -33,17 +47,23 @@ export default function AdminRestaurants() {
                 + Add Restaurant
               </div>
             </div>
-            <div className='flex border-2 items-center'>
-              <Image src='/Pizza.png' width={50} height={50} alt='pizza' />
-              <div>
-                <h2>Papajons</h2>
-                <p>pizza</p>
-              </div>
-              <div>
-                <Trash2 />
-                <Pencil />
-              </div>
-            </div>
+            <div className='flex  items-center flex-wrap '>
+  {lists.map((list, key) => (
+    <div key={key} className='flex items-center border-2 py-2 '>
+      <img src={list.img_url} width={50} height={50} alt='pizza' />
+      <div className='ml-4 flex flex-col'>
+        <h2 className='text-2xl'>{list.name}</h2>
+        <p>{list.cuisine}</p>
+      </div>
+      <div className='ml-auto flex items-center space-x-4 flex-col'>
+      <Pencil className='cursor-pointer' onClick={() => handleEdit(list.id)} />
+        <Trash2 className='cursor-pointer' onClick={() => handleDelete(list.id)} />
+       
+      </div>
+    </div>
+  ))}
+</div>
+           
           </div>
         </div>
       </div>

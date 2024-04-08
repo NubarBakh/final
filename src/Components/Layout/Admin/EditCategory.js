@@ -2,7 +2,6 @@ import { useState, useCallback, useRef } from "react";
 import Button from "../Button";
 import Image from 'next/image';
 import axios from "axios"; 
-import { Pencil } from "lucide-react";
 
 export default function EditCategory({ value }) {
   const [id, setId] = useState(null);
@@ -57,7 +56,7 @@ export default function EditCategory({ value }) {
               </form>
             </div>
             <div className="flex justify-between">
-              <div onClick={()=>{setShow(!show)}}>
+              <div onClick={()=>{setShow(false)}}>
                 <Button>Cancel</Button>
               </div>
               <div onClick={onClick}>

@@ -10,6 +10,7 @@ export default function AddCategory({ value }) {
   const [show, setShow] = useState(true);
   const categoryRef = useRef(null);
   const slugRef=useRef(null)
+  
 
   const onClick = useCallback(() => {
     

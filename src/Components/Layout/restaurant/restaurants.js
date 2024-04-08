@@ -12,15 +12,17 @@ export default function RestaurantsList() {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
+
+   axios.get("http://localhost:3001/api/restuarants")
+   .then((result)=>{console.log(result.data.result.data)
+    setRestaurants (result.data.result.data)})
+    .catch((error)=>{console.log(error)})
     
-    const getRestaurants=async()=>{
-      const{data:res}=await  axios.get("http://localhost:3001/api/restuarants");
-    setRestaurants (res);
-  };
-  getRestaurants()
+
+  
     },[]);
     
-  console.log(restaurants)
+  
       
 
   return (
@@ -63,24 +65,25 @@ export default function RestaurantsList() {
         <div className="mx-2 flex gap-5 m-5 flex-wrap sm:flex-wrap sm:justify-center md:justify-start">
           
        
-            <Link href={`/restaurants/`} >
-            {Array.isArray(restaurants)&&restaurants?.map(restaurant=>
+            
+            {restaurants.map((restaurant,key)=>
+            
              <div className="border-solid border-gray border-2 px-5 box-border pt-5">
              <div className="flex justify-center mb-2">
                
-                 <Image src={''} width={100} height={100} alt={''} />
+                 <img src={restaurant.img_url} width={100} height={100} alt={''} />
                
              </div>
-             <div className="flex font-bold text-lg mb-2"></div>
-             <p className="mb-3">{restaurant.name}</p>
+             <div className="flex font-bold text-lg mb-2">{restaurant.name}</div>
+             <p className="mb-3">{restaurant.cuisine}</p>
              <div className="flex justify-between mb-3">
-               <div className="font-semibold mb-2">$ Delivery</div>
-               <div className="bg-red-400 text-white rounded-full p-1 px-2"></div>
+               <div className="font-semibold mb-2">${restaurant.delivery_price}Delivery</div>
+               <div className="bg-red-400 text-white rounded-full p-1 px-2">{restaurant.delivery_min}min</div>
              </div>
            </div>
               )}
              
-            </Link>
+            
           
         </div>
 
