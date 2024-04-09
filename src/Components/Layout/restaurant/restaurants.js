@@ -4,12 +4,16 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { ListFilter, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 
 
 export default function RestaurantsList() {
+  
   const [open, setOpen] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
+  const[id,setId]=useState(null)
+  const router = useRouter();
 
   useEffect(() => {
 
@@ -67,6 +71,8 @@ export default function RestaurantsList() {
        
             
             {restaurants.map((restaurant,key)=>
+            <div key={restaurant.id} onClick={() => router.push(`/restaurants/${restaurant.id}`)}>
+              {console.log(restaurant.id)}
             
              <div className="border-solid border-gray border-2 px-5 box-border pt-5">
              <div className="flex justify-center mb-2">
@@ -80,6 +86,7 @@ export default function RestaurantsList() {
                <div className="font-semibold mb-2">${restaurant.delivery_price}Delivery</div>
                <div className="bg-red-400 text-white rounded-full p-1 px-2">{restaurant.delivery_min}min</div>
              </div>
+           </div>
            </div>
               )}
              

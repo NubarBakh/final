@@ -38,7 +38,7 @@ export default function Sign() {
                 alert("Login successful!");
 
                 // Redirect to the profile page
-                //router.push("/userpage/profiles");
+                router.push("/userpage/profiles");
             }
         })
         .catch(error => {
