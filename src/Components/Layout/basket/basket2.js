@@ -3,14 +3,28 @@ import { CircleUserRound,ShoppingBasket, LogOut ,Trash2} from "lucide-react";
 import Button from "../Button"
 import Image from 'next/image';
 import { useCart, CartProvider } from "react-use-cart";
-import React from "react";
+import React, { useEffect } from "react";
 import EmptyBasket from '../basket/emptyBasket'
+import axios from "axios";
 
 export default function Basket2(){
 
+  useEffect(()=>{
+    axios.get('http://localhost:3001/api/basket', {
+      headers: {
+        'Authorization': `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwRjNHdk1vczVNWE4xRXNtcGNDVjBsOVlMNmgxIiwiaWF0IjoxNzEzMTY4NDYyLCJleHAiOjE3MTMxNzIwNjJ9.xGZZJD8JTrSv6l6iMO5_Dg2QmIXZ1nmoWQWvqzJxzqQ'}`
+      }
+    })
+    .then((result)=>{console.log(result)}
+    )
+    .catch((error)=>{console.log(error)})
+
+  },[])
+
+ 
 
   
-    const {
+   const {
         
         isEmpty,
         totalUniqueItems,
@@ -22,20 +36,10 @@ export default function Basket2(){
         removeItem,
     } = useCart();
   
-    if (isEmpty) return <div className="flex justify-center"> <EmptyBasket/> </div>;
-
-
-          
-            return (
+   /* if (isEmpty) return <div className="flex justify-center"> <EmptyBasket/> </div>;*/
+ return (
               <>
                
-          
-                
-              
-            
-
-
-
     <div className="flex  flex-col my-10  px-5 bg-gray-100   divide-y divide-solid divide-slate-400 ">
     <h1 className="flex gap-1 text-red-600 py-3  sm:hid"><ShoppingBasket/> {totalItems} items</h1>
 
@@ -65,7 +69,8 @@ export default function Basket2(){
                         <div className=" rounded-full  flex flex-col border-x-orange-900 bg-white w-7 items-center pt-3">
                            
                             <div>
-                              <button onClick={() => updateItemQuantity(item.id, item.quantity + 1)}> + </button>
+                              <button /*onClick={() => updateItemQuantity(item.id, item.quantity + 1)}*/
+                              onClick={addBasket}> + </button>
                             </div>
                             <div>{item.quantity}</div>
                             <div>

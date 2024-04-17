@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 import Image from 'next/image';
-import Link from 'next/link'; // Import Link from Next.js
+import Link from 'next/link'; 
 import Button from "../Button";
 import SiteMenu from '../siteMenu';
 import axios from 'axios';
@@ -23,7 +23,7 @@ export default function Sign() {
         console.log("Email:", email);
         console.log("Password:", password);
 
-        axios.post("http://localhost:3001/api/auth/signin", {
+        axios.post("/api/auth/signin", {
             email: email,
             password: password,
         })
@@ -34,17 +34,20 @@ export default function Sign() {
 
             if (response.status === 200) {
                 console.log(response.status);
+                const{ user:{access_token, refresh_token}}= response.data;
+                localStorage.setItem('access_token',access_token);
+                localStorage.setItem('refresh_token',refresh_token)
                 console.log(response.data.user.id)
                 alert("Login successful!");
 
-                // Redirect to the profile page
+                
                 router.push("/userpage/profiles");
             }
         })
         .catch(error => {
             console.log("Login Error:", error.response);
             setResult(error.response);
-            // Better error handling, show specific error message
+         
             alert(error.response?.data?.message || "Login failed");
         });
     }, [router]);

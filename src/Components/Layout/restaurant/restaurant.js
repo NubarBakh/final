@@ -1,11 +1,10 @@
 
-import Image from 'next/image';
 import Button from "../Button";
 import { PlusCircle,X } from "lucide-react";
 import Basket2 from "../basket/basket2";
 import { useRouter } from 'next/navigation';
 import dynamic from "next/dynamic";
-import { useCart, CartProvider } from "react-use-cart";
+import { useCart } from "react-use-cart";
 import { useState,useCallback, useEffect } from 'react';
 import axios from 'axios';
 
@@ -32,6 +31,15 @@ useEffect(() => {
             console.log(error.response);
         });
 }, []);
+
+ const onClick= useCallback (()=>{
+    axios.post( "http://localhost:3001/api/basket/add")
+.then((result)=>{console.log(result)})
+.catch((error)=>{console.log(error)})
+},[])
+
+ 
+
 
     useEffect(() => {
         console.log(value)
@@ -65,7 +73,7 @@ useEffect(() => {
                         <h2 className="text-2xl">{restaurant.name}</h2>
                         <p className="text-gray-700">{restaurant.address}</p>
                     </div>
-                    <div className="flex gap-4 sm:justify-between ">
+                    <div className="flex ;gap-4 sm:justify-between ">
                         <div>
                             <h3>Cuisine</h3>
                             <p className="text-gray-700">{restaurant.cuisine}</p>
@@ -115,7 +123,7 @@ useEffect(() => {
                                     <div className="flex items-center ">
                                         From ${prod.price}
                                     </div>
-                                    <div className="pt-9 hover:text-white" onClick={() => addItem(prod)}>
+                                    <div className="pt-9 hover:text-white" onClick={onClick}>
                                         <PlusCircle className="sm:hover:bg-green-600 rounded-full" />
                                     </div>
                                 </div>

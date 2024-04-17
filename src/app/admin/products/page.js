@@ -1,11 +1,12 @@
 'use client'
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Search } from "lucide-react";
 import AdminHeader from "../../../Components/Layout/Admin/AdminHeader";
 import AdminSideMenu from "../../../Components/Layout/Admin/AdminSideMenu";
-import AdminAddEdit from "../../../Components/Layout/Admin/AdminAddEdit";
 import AdminDelete from "../../../Components/Layout/Admin/AdminDelete";
 import { Pencil, Trash2 } from "lucide-react";
+import AdminEditProduct from "../../../Components/Layout/Admin/AdminEditProduct";
 
 export default function Product() {
   const [show, setShow] = useState(false);
@@ -45,32 +46,32 @@ export default function Product() {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative bg-slate-900">
         <AdminHeader />
-        <div className="flex">
+        <div className="flex  gap-2">
           <AdminSideMenu />
           <div className="flex flex-col">
-            <div className="flex ">
-              <p>Products</p>
-              <div className="flex justify-end">
-                <select>
-                  <option>Restaurant type</option>
+            <div className="flex  bg-slate-800 p-4 rounded justify-between">
+              <p className="text-white">Products</p>
+              <div className="flex justify-between gap-2">
+                <select className="rounded-md">
+                  <option >Restaurant type</option>
                   {lists.map((list, key) => (
                     <option value={list.name} key={key}>
                       {list.name}
                     </option>
                   ))}
                 </select>
-                <div>
-                  <input placeholder="search" />
+                <div className="flex text-white bg-magenta rounded-md p-1" > <Search />
+                  <input placeholder="search" className="rounded-md bg-magenta" />
                 </div>
               </div>
             </div>
             <div>
-              <div className="mx-2 flex gap-5 m-5 flex-wrap sm:flex-wrap sm:justify-center md:justify-start">
+              <div className="mx-2 flex gap-5 m-5 flex-wrap sm:flex-wrap sm:justify-center md:justify-start ">
                 {products.map((prod, key) => (
                   <div
-                    className="border-solid border-gray border-2 px-5 box-border pt-5"
+                    className="border-solid border-gray border-2 px-5 box-border pt-5 bg-white"
                     key={key}
                   >
                     <div className="flex justify-center mb-2">
@@ -97,7 +98,7 @@ export default function Product() {
                           <Pencil />
                           {open && (
                             <div>
-                              <AdminAddEdit value={"edit Product"} />
+                              <AdminEditProduct value={"Edit Product"} />
                             </div>
                           )}
                         </div>

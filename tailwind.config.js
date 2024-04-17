@@ -13,7 +13,10 @@ module.exports = {
         // => @media (min-width: 992px) { ... }
       },
       colors: {
-        primary: '#f13a01'
+        primary: '#f13a01',
+        
+          'magenta': '#C035A2',
+        
       },
     },
   },

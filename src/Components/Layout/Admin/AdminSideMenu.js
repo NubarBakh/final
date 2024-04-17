@@ -3,34 +3,34 @@ import Link from 'next/link';
 
 export default function AdminSideMenu (){
     return<>
-      <div className="bg-gray-100 px-20 mt-10 py-10">
-            <div className="flex gap-3 mb-4 border w-36">
+      <div className="p-5 px-10 bg-purple-500 rounded-md sm:hidden md:flex flex flex-col h-96 ">
+            <div className="flex gap-3 mb-4  w-36">
               <LayoutDashboard />
-              <Link href={'/'}>Dashboard</Link>
+              <Link href={'/admin'}>Dashboard</Link>
             </div>
             <div className="flex gap-3 mb-4">
               <KeyboardMusic />
-              <Link href={'/userpage/basket'}>Products</Link>
+              <Link href={'/admin/products'}>Products</Link>
             </div>
             <div className="flex gap-3 mb-4">
               <Utensils />
-              <div>Restaurants</div>
+              <Link href={'/admin/restuarants'}>Restaurants</Link>
             </div>
             <div className="flex gap-3 mb-4">
               <Boxes />
-              <Link href={'/userpage/order/checkout'}>Category</Link>
+              <Link href={'/admin/category'}>Category</Link>
             </div>
             <div className="flex gap-3 mb-4">
               <ListOrdered />
-              <div>Orders</div>
+              <Link href={'/admin/orders'}>Orders</Link>
             </div>
             <div className="flex gap-3 mb-4">
               <TicketPercent />
-              <div>Offers</div>
+              <Link href={'/admin/offers'}>Offers</Link>
             </div>
             <div className="flex gap-3 mb-4">
               <LogOut />
-              <div>Log out</div>
+              <Link href={'/admin/login'}>Log out</Link>
             </div>
           </div>
     </>
